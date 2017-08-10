@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH --account=camctrp
-#SBATCH --qos=camctrp
+#SBATCH --account=[name_of_group_account]
+#SBATCH --qos=[name_of_group_account]
 #SBATCH --job-name=dti_preprocess
 #SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=dgulliford@ufl.edu
+#SBATCH --mail-user=[email_associated_with_hpg_account]
 #SBATCH --ntasks=1
 #SBATCH --mem=8gb
 #SBATCH --time=24:00:00
@@ -14,7 +14,7 @@ module load fsl/5.0.8
  
 	eddy_correct DTI/FSL/64dir.nii DTI/FSL/64dir_ecc.nii.gz 0
 	bet2 DTI/FSL/64dir_ecc DTI/FSL/nodif_brain -f .3 -m
-  dtifit -k DTI/FSL/64dir_ecc -o DTI/FSL/dti -m DTI/FSL/nodif_brain_mask.nii.gz -r DTI/FSL/bvecs -b DTI/FSL/bvals
+	dtifit -k DTI/FSL/64dir_ecc -o DTI/FSL/dti -m DTI/FSL/nodif_brain_mask.nii.gz -r DTI/FSL/bvecs -b DTI/FSL/bvals
 	bedpostx DTI/FSL/
 	flirt -in DTI/FSL/nodif_brain -ref FSL/T1/T1_brain.nii -omat DTI/FSL.bedpostX/xfms/diff2str.mat -searchrx -90 90 -searchry -90 90 -searchrz -90 90 -dof 12 -cost mutualinfo
 	convert_xfm -omat DTI/FSL.bedpostX/xfms/str2diff.mat -inverse DTI/FSL.bedpostX/xfms/diff2str.mat
