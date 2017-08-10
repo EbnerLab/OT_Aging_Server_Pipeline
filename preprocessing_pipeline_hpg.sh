@@ -18,6 +18,7 @@ do
  mkdir $i/$i
 
 #copies needed data from shared folder to working directory
+#replace $filepath with the shared directory containing the individual subject folders with the raw data
  cp $filepath/$i/T1/T1.nii $i/T1/
  cp $filepath/$i/RS/rsBOLD.nii $i/rsBOLD/
  cp -r $filepath/$i/DTI/ $i/
