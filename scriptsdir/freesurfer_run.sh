@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH --account=camctrp
-#SBATCH --qos=camctrp
+#SBATCH --account=[name_of_group_account]
+#SBATCH --qos=[name_of_group_account]
 #SBATCH --job-name=freesurfer
 #SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=dgulliford@ufl.edu
+#SBATCH --mail-user=[email_associated_with_hpg_account]
 #SBATCH --ntasks=1
 #SBATCH --mem=8gb
 #SBATCH --time=24:00:00
