@@ -4,6 +4,13 @@
 #for use on server with slurm sbatch scripts
 #for questions please contact dgulliford@ufl.edu
 
+echo "This bash script is a complete preprocessing pipeline for structural segmentation, resting state melodic ica, and diffusion tensor tractography on the UF Hipergator2"
+echo "Written by Désirée Lussier for Ebner Labs"
+echo "University of Florida"
+echo "dgulliford@ufl.edu"
+echo "http://www.psych.ufl.edu/ebnerlab/"
+echo "10 August 2017"
+
 #loads mricron module for dcm2niix
 module load mricron
 
@@ -37,12 +44,16 @@ do
  mv $i/DTI/DTI_dicoms/ $i/DTI/raw/DTI_dicoms/
  mv $i/DTI/b0_map_dicoms $i/DTI/raw/b0_map_dicoms/
  cp $i/T1/T1.nii $i/$i/
+ echo "direcotries set up and data copied for"
+ echo $i
 
 #copies processing and preprocessing scripts in to subject folder
  cp $scriptdir/freesurfer_run.sh $i/
  cp $scriptdir/DTI_preprocessing.sh $i/
  cp $scriptdir/melodic_individual.sh $i/
-
+ echo "scripts set for"
+ echo $i
+ 
 #converts dti dicoms to niftis
  dcm2niix $i/DTI/raw/DTI_dicoms/
  dcm2niix $i/DTI/raw/b0_map_dicoms/
@@ -63,6 +74,8 @@ do
  cp $i/DTI/nifti/64dir.nii $i/DTI/FSL/64dir.nii
  cp $i/DTI/nifti/64dir.nii $i/DTI/FSL/data.nii
  cp $i/DTI/nifti/64dir.json $i/DTI/FSL/64dir.json
+ echo "direcotries set up for"
+ echo $i
 
 #renames variable in freesurfer recon-all processing script to subject number 
   sed -i -e "s/subject/${i}/g" $i/freesurfer_run.sh
@@ -74,8 +87,12 @@ do
    sbatch melodic_individual.sh
    sbatch freesurfer_run.sh
    sbatch DTI_preprocessing.sh
+   echo "sbatch processing started for"
+   echo $i
 
 #returns to home folder to continue loop
   cd ../
+  echo $i 
+  echo "completed, moving on..."
 
 done
