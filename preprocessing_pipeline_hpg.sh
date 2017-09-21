@@ -13,8 +13,8 @@ echo "desiree.lussier@ufl.edu"
 echo "http://www.psych.ufl.edu/ebnerlab/"
 echo "10 August 2017"
 
-filepath=../../../share/incoming/OT_Aging/PVMRI/brain_data/
-scriptdir=../../scripts/server_scripts/
+filepath=<filepath_to_data>
+scriptdir=<directory_containing_scripts>
 
 #loads mricron module for dcm2niix
 module load mricron
