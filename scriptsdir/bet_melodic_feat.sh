@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH --account=camctrp
-#SBATCH --qos=camctrp
+#SBATCH --account=<group>
+#SBATCH --qos=<group>
 #SBATCH --job-name=bet_melodic_feat
 #SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=dgulliford@ufl.edu
+#SBATCH --mail-user=<email_associated_with_hipergator_account>
 #SBATCH --ntasks=1
 #SBATCH --mem=8gb
 #SBATCH --time=12:00:00
