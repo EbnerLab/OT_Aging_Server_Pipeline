@@ -7,7 +7,7 @@
 echo "This bash script is a complete preprocessing pipeline for structural segmentation, resting state melodic ica, and diffusion tensor tractography on the UF Hipergator2"
 echo "Written by Désirée Lussier for Ebner Labs"
 echo "University of Florida"
-echo "dgulliford@ufl.edu"
+echo "desiree.lussier@ufl.edu"
 echo "http://www.psych.ufl.edu/ebnerlab/"
 echo "10 August 2017"
 
