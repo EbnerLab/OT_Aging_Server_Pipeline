@@ -90,11 +90,13 @@ do
  mv $i/DTI/raw/b0_map_dicoms/b0_map_dicoms_WIP_B0-MAP-TE3-TE6_*.json $i/DTI/nifti/b0map.json
  mv $i/DTI/raw/b0_map_dicoms/b0_map_dicoms_WIP_B0-MAP-TE3-TE6_*e1.nii $i/DTI/nifti/b0map_e1.nii
  mv $i/DTI/raw/b0_map_dicoms/b0_map_dicoms_WIP_B0-MAP-TE3-TE6_*e1.json $i/DTI/nifti/b0map_e1.json
- cp $i/DTI/nifti/64dir.bval $i/DTI/FSL/bvals
- cp $i/DTI/nifti/64dir.bvec $i/DTI/FSL/bvecs
+ cp $i/DTI/nifti/64dir.bval $i/DTI/FSL/
+ cp $i/DTI/nifti/64dir.bvec $i/DTI/FSL/
  cp $i/DTI/nifti/64dir.nii $i/DTI/FSL/64dir.nii
  cp $i/DTI/nifti/64dir.nii $i/DTI/FSL/data.nii
  cp $i/DTI/nifti/64dir.json $i/DTI/FSL/64dir.json
+ mv $i/DTI/FSL/64dir.bval $i/DTI/FSL/bvals
+ mv $i/DTI/FSL/64dir.bvec $i/DTI/FSL/bvecs
  echo "dti dicoms converted to nifti for"
  echo $i
 
