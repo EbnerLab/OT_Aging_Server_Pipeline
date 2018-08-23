@@ -10,10 +10,8 @@
 #SBATCH --output=bet_melodic_feat_%j.out
 pwd; hostname; date
 
-module load fsl/5.0.8
+module load fsl/5.0.11
 
-fslreorient2std T1/T1.nii.gz FSL/T1/T1_reorient.nii.gz
-bet FSL/T1/T1_reorient.nii.gz FSL/T1/T1_brain.nii.gz -f .1 -B -R
 feat rs_melodic.fsf
 feat hs_feat.fsf
 date
