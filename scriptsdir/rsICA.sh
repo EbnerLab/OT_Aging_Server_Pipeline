@@ -12,6 +12,5 @@ pwd; hostname; date
 
 module load fsl/5.0.11
 
-feat rs_melodic.fsf
-feat hs_feat.fsf
+feat rsICA.fsf
 date
