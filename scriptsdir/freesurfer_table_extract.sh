@@ -109,7 +109,6 @@ paste -d , *.csv > freesurfer_stats_all
 paste -d , *parc_*.csv > freesurfer_stats_aparc
 paste -d , *.a2009s.*.csv > freesurfer_stats_a2009s
 paste -d , *.BA.*.csv > freesurfer_stats_BA
-done
 
 #cleans and organizes directory by moving .txt files into new directories for storage
 mkdir stats_files/
