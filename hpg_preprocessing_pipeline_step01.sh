@@ -49,8 +49,8 @@ do
 #please note that the subject number in freesurfer_run must be modified for each participant
 	cp $scriptdir/freesurfer_run.sh ${a}${visit}/
 	cp $scriptdir/eddycorrect.sh ${a}${visit}/
-	cp $scriptdir/hsFEAT_fsreg.fsf ${a}${visit}/
- 	cp $scriptdir/rsICA_fsreg.fsf ${a}${visit}/
+	cp $scriptdir/hsFEAT.fsf ${a}${visit}/
+ 	cp $scriptdir/rsICA.fsf ${a}${visit}/
 	cp $scriptdir/freesurfer_subfields.sh ${a}${visit}/
 	cp $scriptdir/hsFEAT.sh ${a}${visit}/
  	cp $scriptdir/rsICA.sh ${a}${visit}/
