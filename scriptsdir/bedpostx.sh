@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH --account=camctrp
-#SBATCH --qos=camctrp-b
+#SBATCH --account=<group>
+#SBATCH --qos=<group>
 #SBATCH --job-name=bedpostx
 #SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=dgulliford@ufl.edu
+#SBATCH --mail-user=<email>
 #SBATCH --ntasks=1
 #SBATCH --mem=5gb
 #SBATCH --time=48:00:00
