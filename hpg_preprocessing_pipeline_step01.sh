@@ -54,6 +54,8 @@ do
  	cp $scriptdir/rsICA.sh ${a}${visit}/
 	cp $scriptdir/bedpostx.sh ${a}${visit}/
  	cp $scriptdir/tracall_prep_config.txt ${a}${visit}/
+ 	cp $scriptdir/tracall_prep.sh ${a}${visit}/
+ 	cp $scriptdir/freesurfer_subfields.sh ${a}${visit}/
 
 #converts dti dicoms to niftis
 	dcm2niix ${a}${visit}/DTI/DTI_dicoms/
