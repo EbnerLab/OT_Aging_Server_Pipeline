@@ -30,16 +30,16 @@ do
 	mkdir ${a}${visit}/T1
 	mkdir ${a}${visit}/rsBOLD
 	mkdir ${a}${visit}/hsBOLD
- mkdir ${a}${visit}/b0
- mkdir ${a}${visit}/DTI
+ 	mkdir ${a}${visit}/b0
+	mkdir ${a}${visit}/DTI
 	mkdir ${a}${visit}/${a}${visit}
 
 #copies needed data from shared folder to working directory
 	cp $filepath/${a}${visit}/T1/T1.nii ${a}${visit}/T1/
 	cp $filepath/${a}${visit}/RS/rsBOLD.nii ${a}${visit}/rsBOLD/
- cp $filepath/${a}${visit}/HS/hsBOLD.nii ${a}${visit}/hsBOLD/
+ 	cp $filepath/${a}${visit}/HS/hsBOLD.nii ${a}${visit}/hsBOLD/
 	cp -r $filepath/${a}${visit}/DTI/DTI_dicoms/ ${a}${visit}/DTI
- cp -r $filepath/${a}${visit}/DTI/b0_map_dicoms ${a}${visit}/b0_map_dicoms
+ 	cp -r $filepath/${a}${visit}/DTI/b0_map_dicoms ${a}${visit}/b0_map_dicoms
 	cp ${a}${visit}/T1/T1.nii ${a}${visit}/${a}${visit}/
 
 ###make sure going to poper directories
@@ -48,48 +48,48 @@ do
 	cp $scriptdir/freesurfer_run.sh ${a}${visit}/
 	cp $scriptdir/eddycorrect.sh ${a}${visit}/
 	cp $scriptdir/hsFEAT_fsreg.fsf ${a}${visit}/
- cp $scriptdir/rsICA_fsreg.fsf ${a}${visit}/
+ 	cp $scriptdir/rsICA_fsreg.fsf ${a}${visit}/
 	cp $scriptdir/freesurfer_subfields.sh ${a}${visit}/
 	cp $scriptdir/hsFEAT.sh ${a}${visit}/
- cp $scriptdir/rsICA.sh ${a}${visit}/
+ 	cp $scriptdir/rsICA.sh ${a}${visit}/
 	cp $scriptdir/bedpostx.sh ${a}${visit}/
- cp $scriptdir/tracall_prep_config.txt ${a}${visit}/
+ 	cp $scriptdir/tracall_prep_config.txt ${a}${visit}/
 
 #converts dti dicoms to niftis
 	dcm2niix ${a}${visit}/DTI/DTI_dicoms/
 	dcm2niix ${a}${visit}/DTI/b0_map_dicoms/
 
 	#create directories for tracall in tracula folder
-		mkdir tracula/${a}${visit}/
-	 mkdir tracula/${a}${visit}/scripts/
-	 mkdir tracula/${a}${visit}/dmri/
-		mkdir tracula/${a}${visit}/dmri/xfms
-		mkdir tracula/${a}${visit}/dmri/mni
-		mkdir tracula/${a}${visit}/dlabel/
-		mkdir tracula/${a}${visit}/dlabel/diff/
-		mkdir tracula/${a}${visit}/dlabel/anatorig/
-		mkdir tracula/${a}${visit}/dlabel/anat/
+	mkdir tracula/${a}${visit}/
+	mkdir tracula/${a}${visit}/scripts/
+	mkdir tracula/${a}${visit}/dmri/
+	mkdir tracula/${a}${visit}/dmri/xfms
+	mkdir tracula/${a}${visit}/dmri/mni
+	mkdir tracula/${a}${visit}/dlabel/
+	mkdir tracula/${a}${visit}/dlabel/diff/
+	mkdir tracula/${a}${visit}/dlabel/anatorig/
+	mkdir tracula/${a}${visit}/dlabel/anat/
 
-		echo " tracula directories created for " ${a}${visit}
+	echo " tracula directories created for " ${a}${visit}
 
 #moves and renames files to set up folder to run DTI preporcessing scripts
-  mv DTI/${a}${visit}/*64*dir*.nii DTI/${a}${visit}/64dir.nii
-  mv DTI/${a}${visit}/*64*dir*.bval DTI/${a}${visit}/64dir.bvals
-  mv DTI/${a}${visit}/*64*dir*.bvec DTI/${a}${visit}/64dir.bvecs
-  cp ${a}${visit}/DTI/64dir.nii tracula/${a}${visit}/dmri/
-  cp ${a}${visit}/DTI/64dir.bvals tracula/${a}${visit}/dmri/
-  cp ${a}${visit}/DTI/64dir.bvecs tracula/${a}${visit}/dmri/
-  mv tracula/${a}${visit}/dmri/64dir.nii tracula/${a}${visit}/dmri/dwi_orig.nii
-  mv tracula/${a}${visit}/dmri/64dir.bvals tracula/${a}${visit}/dmri/dwi_orig_trans.bvals
-  mv tracula/${a}${visit}/dmri/64dir.bvecs tracula/${a}${visit}/dmri/dwi_orig_trans.bvecs
-	 mv ${a}${visit}/b0/b0_map_dicoms/*b0*.nii ${a}${visit}/b0/b0_map_dicoms/b0map.nii
-  cp ${a}${visit}/b0/b0_map_dicoms/b0map.nii tracula/${a}${visit}/dmri/
-  mv tracula/${a}${visit}/dmri/64dir.nii tracula/${a}${visit}/dmri/dwi_orig.nii
-  mv tracula/${a}${visit}/dmri/64dir.bvals tracula/${a}${visit}/dmri/dwi_orig_trans.bvals
-  mv tracula/${a}${visit}/dmri/64dir.bvecs tracula/${a}${visit}/dmri/dwi_orig_trans.bvecs
+	mv DTI/${a}${visit}/*64*dir*.nii DTI/${a}${visit}/64dir.nii
+	mv DTI/${a}${visit}/*64*dir*.bval DTI/${a}${visit}/64dir.bvals
+	mv DTI/${a}${visit}/*64*dir*.bvec DTI/${a}${visit}/64dir.bvecs
+	cp ${a}${visit}/DTI/64dir.nii tracula/${a}${visit}/dmri/
+	cp ${a}${visit}/DTI/64dir.bvals tracula/${a}${visit}/dmri/
+	cp ${a}${visit}/DTI/64dir.bvecs tracula/${a}${visit}/dmri/
+	mv tracula/${a}${visit}/dmri/64dir.nii tracula/${a}${visit}/dmri/dwi_orig.nii
+	mv tracula/${a}${visit}/dmri/64dir.bvals tracula/${a}${visit}/dmri/dwi_orig_trans.bvals
+	mv tracula/${a}${visit}/dmri/64dir.bvecs tracula/${a}${visit}/dmri/dwi_orig_trans.bvecs
+	mv ${a}${visit}/b0/b0_map_dicoms/*b0*.nii ${a}${visit}/b0/b0_map_dicoms/b0map.nii
+	cp ${a}${visit}/b0/b0_map_dicoms/b0map.nii tracula/${a}${visit}/dmri/
+	mv tracula/${a}${visit}/dmri/64dir.nii tracula/${a}${visit}/dmri/dwi_orig.nii
+	mv tracula/${a}${visit}/dmri/64dir.bvals tracula/${a}${visit}/dmri/dwi_orig_trans.bvals
+	mv tracula/${a}${visit}/dmri/64dir.bvecs tracula/${a}${visit}/dmri/dwi_orig_trans.bvecs
 
-	#transpose bvecs and bvals
-	  awk '{for (i=1; i<=NF; i++) a[i,NR]=$i
+#transpose bvecs and bvals
+	awk '{for (i=1; i<=NF; i++) a[i,NR]=$i
 	        max=(max<NF?NF:max)}
 	        END {for (i=1; i<=max; i++)
 	              {for (j=1; j<=NR; j++)
@@ -97,7 +97,7 @@ do
 	              }
 	        }' tracula/${a}${visit}/dmri/dwi_orig_trans.bvals > tracula/${a}${visit}/dmri/dwi_orig.bvals
 
-	  awk '{for (i=1; i<=NF; i++) a[i,NR]=$i
+	awk '{for (i=1; i<=NF; i++) a[i,NR]=$i
 	        max=(max<NF?NF:max)}
 	        END {for (i=1; i<=max; i++)
 	              {for (j=1; j<=NR; j++)
@@ -105,35 +105,35 @@ do
 	              }
 	        }' tracula/${a}${visit}/dmri/dwi_orig_trans.bvecs > tracula/${a}${visit}/dmri/dwi_orig.bvecs
 
-	  echo "bvals and bvecs transposed for " ${a}${visit}
+	echo "bvals and bvecs transposed for " ${a}${visit}
 
-	#reorients dwi to las space
-  orientLAS tracula/${a}${visit}/dmri/dwi_orig.nii tracula/${a}${visit}/dmri/dwi_orig_las.nii.gz
-	 mv -f tracula/${a}${visit}/dmri/dwi_orig_las.bvecs tracula/${a}${visit}/dmri/bvecs
-	 mv -f tracula/${a}${visit}/dmri/dwi_orig_las.bvals tracula/${a}${visit}/dmri/bvals
+#reorients dwi to las space
+	orientLAS tracula/${a}${visit}/dmri/dwi_orig.nii tracula/${a}${visit}/dmri/dwi_orig_las.nii.gz
+	mv -f tracula/${a}${visit}/dmri/dwi_orig_las.bvecs tracula/${a}${visit}/dmri/bvecs
+	mv -f tracula/${a}${visit}/dmri/dwi_orig_las.bvals tracula/${a}${visit}/dmri/bvals
 
-	 echo "dwi reoriented to las space for " ${a}${visit}
+	echo "dwi reoriented to las space for " ${a}${visit}
  
  #drops down into tracula subject folder and starts eddy current correct run on slurm
-	 cd tracula/${a}${visit}/
-    sbatch eddycorrect.sh
-  cd ../../
+	cd tracula/${a}${visit}/
+	sbatch eddycorrect.sh
+	cd ../../
 	 echo "eddy current correct run started for " ${a}${visit}
 
 #renames variable in freesurfer recon-all processing script to subject number
- sed -i -e "s/INDV_SUBJECTID/${a}${visit}/g" ${a}${visit}/freesurfer_run.sh
+ 	sed -i -e "s/INDV_SUBJECTID/${a}${visit}/g" ${a}${visit}/freesurfer_run.sh
 	sed -i -e "s/INDV_SUBJECTID/${a}${visit}/g" ${a}${visit}/hsFEAT_fsreg.fsf
- sed -i -e "s/INDV_SUBJECTID/${a}${visit}/g" ${a}${visit}/rsICA_fsreg.fsf
+ 	sed -i -e "s/INDV_SUBJECTID/${a}${visit}/g" ${a}${visit}/rsICA_fsreg.fsf
 	sed -i -e "s/INDV_SUBJECTID/${a}${visit}/g" ${a}${visit}/rsICA_fsreg.fsf
-	sed -i -e "s/INDV_SUBJECTID/${a}${visit}/g" ${a}${visit}/tracall_prep_config.txt ####use different variable
- echo "correct subject number inserted into scripts for" ${a}${visit}
+	sed -i -e "s/INDV_SUBJECTID/${a}${visit}/g" ${a}${visit}/tracall_prep_config.txt
+ 	echo "correct subject number inserted into scripts for" ${a}${visit}
 
 #drops down in to subject folder and starts freesurfer run
- cd ${a}${visit}/
-  sbatch freesurfer_run.sh
- cd ../
- echo "eddy freesurfer run started for " ${a}${visit}
+ 	cd ${a}${visit}/
+		sbatch freesurfer_run.sh
+	cd ../
+ 	echo "eddy freesurfer run started for " ${a}${visit}
 
- echo ${a}${visit} "completed, moving on..."
+echo ${a}${visit} "completed, moving on..."
 
 done
