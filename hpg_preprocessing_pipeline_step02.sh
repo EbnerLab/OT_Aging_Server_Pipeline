@@ -2,7 +2,6 @@
 
 ###things to be added to this file:
 ##organize freesurfer directory
-##timing file creation
 ##correct for inhomogeneity in MRI field using b0
 
 #list subjects on same line with space between
@@ -37,13 +36,14 @@ do
 
     echo "motion quantified for " $a
 
-  cd ${a}/
+#moves down into subject directory and starts sbatch runs
+    cd ${a}/
+    
+        sbatch tracall_prep.sh
+        sbatch freesurfer_subfields.sh
+        sbatch hsFEAT.sh
+        sbatch rsICA.sh
 
-    sbatch tracall_prep.sh
-    sbatch freesurfer_subfields.sh
-    sbatch hsFEAT.sh
-    sbatch rsICA.sh
-
-  cd ../
+    cd ../
 
 done
